@@ -1,28 +1,21 @@
-import express from "express";
-import { PrismaClient } from "@prisma/client";
+import express, { type Application } from "express";
 import cors from 'cors';
 import dotenv from 'dotenv';
+import connectDB from "./config/db.js";
+import organizationRoutes from './routes/organization.routes.js';
+import userRoutes from './routes/user.routes.js';
 
 dotenv.config()
 
-const app = express()
+const app:Application = express()
 
-const prisma = new PrismaClient();
+await connectDB()
 
 app.use(cors())
 app.use(express.json())
-async function main() {
-  try {
-    await prisma.$connect();
-    console.log("✅ Prisma connected successfully to PostgreSQL!");
-  } catch (error) {
-    console.error("❌ Prisma connection failed:", error);
-  } finally {
-    await prisma.$disconnect();
-  }
-}
 
-main();
+app.use('/organizations', organizationRoutes);
+app.use('/users', userRoutes);
 
 app.listen(3000,() =>{
     console.log("server running on port 3000")
