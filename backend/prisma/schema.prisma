@@ -26,6 +26,7 @@ model Organization {
   name                    String
   slug                    String              @unique
   email                   String
+  profileImage            String?   
   contactName             String?
   contactEmail            String?
   contactPhone            String?

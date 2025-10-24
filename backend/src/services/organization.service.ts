@@ -18,7 +18,8 @@ export const create = async (data: any) => {
 };
 
 export const update = async (id: number, data: any) => {
-  return prisma.organization.update({ where: { id }, data });
+  const {users,...orgData} = data
+  return prisma.organization.update({ where: { id }, data:orgData });
 };
 
 export const remove = async (id: number) => {

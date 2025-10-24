@@ -2,7 +2,7 @@ const API_BASE = "http://localhost:3000";
 
 export async function apiGet(endpoint: string) {
   try{
-    console.log(endpoint)
+
     const res = await fetch(`${API_BASE}${endpoint}`);
     if (!res.ok) throw new Error(`GET ${endpoint} failed`);
     return res.json();
