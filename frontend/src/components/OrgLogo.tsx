@@ -1,16 +1,19 @@
 import { useState } from "react";
 
 function OrgLogo({ organization }:{organization:any}) {
-  const [logo, setLogo] = useState(organization.profileImage || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg?semt=ais_hybrid&w=740&q=80");
   const [hovered, setHovered] = useState(false);
 
   const handleLogoChange = async (e:any) => {
     const file = e.target.files[0];
     if (!file) return;
-     const previewURL = URL.createObjectURL(file);
+      const reader = new FileReader();
+    reader.onload = function(event) {
+        const dataURL:any = event?.target?.result; 
+        localStorage.setItem(organization.id, dataURL); 
 
+    };
+    reader.readAsDataURL(file);
 
-  setLogo(previewURL); 
   };
 
   return (
@@ -21,7 +24,7 @@ function OrgLogo({ organization }:{organization:any}) {
     >
       {/* image or default */}
       <img
-        src={logo }
+        src={localStorage.getItem(organization.id) || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3407.jpg?semt=ais_hybrid&w=740&q=80" }
         alt="Org Logo"
         className="w-full h-full object-cover rounded-lg"
       />
