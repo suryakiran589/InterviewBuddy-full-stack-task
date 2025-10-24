@@ -1,5 +1,6 @@
 import type { Request, Response } from 'express';
 import * as orgService from '../services/organization.service.js';
+import {prisma} from '../config/db.js'
 
 export const getAllOrganizations = async (req: Request, res: Response) => {
   const data = await orgService.getAll();
@@ -25,3 +26,4 @@ export const deleteOrganization = async (req: Request, res: Response) => {
   await orgService.remove(Number(req.params.id));
   res.json({ message: 'Organization deleted' });
 };
+

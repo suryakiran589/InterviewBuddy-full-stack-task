@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apiGet, apiPost, apiPut, apiDelete } from "../utils/api";
 import UserForm from "../components/UserForm";
+import OrgLogo from "../components/OrgLogo";
 
 interface User {
   id: number;
@@ -120,13 +121,7 @@ export default function OrganizationDetails() {
         {/* Organization Header Card */}
         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
           <div className="flex items-start gap-6">
-            <div className="w-24 h-24 bg-orange-700 rounded-lg flex items-center justify-center">
-              <img
-                src="/api/placeholder/96/96"
-                alt="Org Logo"
-                className="w-full h-full object-cover rounded-lg"
-              />
-            </div>
+            <OrgLogo organization={form}/>
             <div className="flex-1">
               <div className="flex items-start justify-between mb-2">
                 <h1 className="text-2xl font-semibold text-gray-900">
