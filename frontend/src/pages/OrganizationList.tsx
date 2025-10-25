@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Search, Bell, User, Home, Eye, Trash2, X, Filter, Loader2 } from "lucide-react";
+import { Search, Home, Eye, Trash2, X, Filter, Loader2 } from "lucide-react";
 import { apiDelete, apiGet, apiPost } from "../utils/api";
 import Header from "../components/Header";
 
