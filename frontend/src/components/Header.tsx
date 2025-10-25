@@ -5,7 +5,7 @@ export default function Header() {
     <header className="bg-gray-900 px-4 md:px-6 py-3 flex items-center justify-between">
       <div className="flex items-center gap-4 md:gap-8">
         <div className="border-2 border-white px-3 py-1 font-bold text-xs md:text-sm text-white">
-          LOGO
+          CollegeAtlas 
         </div>
       </div>
       <div className="flex items-center gap-3 md:gap-4">
