@@ -3,14 +3,13 @@ interface Props {
   setForm: (v: any) => void;
   onSubmit: () => void;
   onCancel: () => void;
-  action:string
 }
 
-export default function UserForm({ form, setForm, onSubmit, onCancel,action }: Props) {
+export default function UserEditForm({ form, setForm, onSubmit, onCancel }: Props) {
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center">
       <div className="bg-white p-6 rounded-lg w-[400px]">
-        <h2 className="text-lg font-semibold mb-4">{action === "Add"?"Add User":"Edit User"}</h2>
+        <h2 className="text-lg font-semibold mb-4">Edit User</h2>
         {["name", "email", "phone"].map((field) => (
           <input
             key={field}
